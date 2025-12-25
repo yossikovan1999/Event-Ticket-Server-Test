@@ -4,8 +4,6 @@ import usersRouter from "./routes/userRouter.js";
 import creatorRouter from "./routes/creatorRouter.js";
 import errorMiddleware from "./middleware/errorMiddleware.js";
 
-
-
 const app = express();
 
 app.use(express.json());
