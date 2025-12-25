@@ -50,7 +50,6 @@ router.get("/:username/summary", async (req, res, next) => {
   try {
     const { username } = req.params;
     
-    console.log("here")
 
     if (!username) {
       throw new HttpError("username must be included!");

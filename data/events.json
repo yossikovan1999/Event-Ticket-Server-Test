@@ -1,14 +1,7 @@
 [
   {
-    "eventName": "a",
-    "ticketsForSale": "0"
-  },
-  {
-    "eventName": "c",
-    "ticketsForSale": "3"
-  },
-  {
-    "eventName": "l",
-    "ticketsForSale": "3"
+    "eventName": "gcc",
+    "ticketsForSale": "2",
+    "createdBy": "daniel"
   }
 ]

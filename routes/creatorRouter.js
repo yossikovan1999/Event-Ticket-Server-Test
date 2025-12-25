@@ -11,13 +11,13 @@ const router = express.Router();
  */
 router.post("/events", authMiddleware, async (req, res, next) => {
   try {
-    const { eventName, ticketsForSale } = req.body;
+    const { eventName, ticketsForSale, username} = req.body;
 
     if (!eventName || !ticketsForSale) {
       throw new HttpError("must include event name and tickes amount", 400);
     }
 
-    await eventServices.addEvent(eventName, ticketsForSale);
+    await eventServices.addEvent(username, eventName, ticketsForSale);
     return res.status(200).json({ message: "event added successfully." });
   } catch (error) {
     console.error(error.message);

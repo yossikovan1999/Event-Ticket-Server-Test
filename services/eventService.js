@@ -20,9 +20,8 @@ async function getEventsAndValidateUnique(eventName) {
 }
 
 
-
 /**
- * this function will validate if purchase is possible and remove the quantity if possible
+ * this function will validate if purchase is possible and purchase.
  * @param {*} eventName 
  * @param {*} quantity 
  */
@@ -44,7 +43,7 @@ export async function buyIfPossible(eventName, quantity){
   }
 
   event.ticketsForSale = String(Number(event.ticketsForSale) - Number(quantity));
-  console.log(event.ticketsForSale);
+
   await jsonService.writeJsonFile(EVENTS_FILE, events);
 }
 
@@ -53,10 +52,10 @@ export async function buyIfPossible(eventName, quantity){
  * @param {*} eventName 
  * @param {*} ticketsForSale 
  */
-export async function addEvent(eventName, ticketsForSale) {
+export async function addEvent(useranme, eventName, ticketsForSale) {
   const events = await getEventsAndValidateUnique(eventName);
 
-  const event = { eventName: eventName, ticketsForSale: ticketsForSale };
+  const event = { eventName: eventName, ticketsForSale: ticketsForSale, createdBy : useranme };
   
   if(isNaN(ticketsForSale)){
     throw new HttpError("ticket number must be a number", 400);

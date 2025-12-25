@@ -15,13 +15,10 @@ async function verifyUserAndPassword(username, password) {
   );
 
   if (!user) {
-    console.log("here1");
     throw new HttpError("user not registered please register", 404);
   }
 
   if (user.password !== password) {
-    console.log("here2");
-
     throw new HttpError("password not correct.", 400);
   }
 }
